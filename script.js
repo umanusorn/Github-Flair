@@ -292,7 +292,7 @@
         div.className = 'blog';
         a.href = /^https?:\/\//.test(url) ? url : 'http://' + url;
         a.target = "_blank";
-        a.innerHTML = 'Blog / Website';
+        a.innerHTML = 'Website';
         a.style = styleString(theme['textLink']);
         div.appendChild(a);
         return div;
