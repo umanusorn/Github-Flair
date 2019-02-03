@@ -95,7 +95,7 @@
         profile.location = userData['location']|| "";
         profile.blog = userData['blog']|| "";
         profile.company = userData['company']|| "";
-        profile.bioinfo = userData['bio']|| "";
+        profile.bioinfo = truncateText(userData['bio']|| "", 80);
 
         profile.followers = truncateNum(userData['followers']|| "");
         profile.followerUrl = userData['followers_url']|| "";
@@ -115,6 +115,14 @@
             stars += parseInt(repo['stargazers_count'], 10);
         });
         profile.stars = truncateNum(stars);
+    }
+
+    function truncateText(txt, limit){
+        if (txt.length > limit) {
+            return txt.substring(0, limit) + "...";
+        }
+
+        return txt;
     }
 
     function truncateNum(number){
